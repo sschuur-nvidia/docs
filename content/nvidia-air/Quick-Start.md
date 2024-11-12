@@ -30,7 +30,7 @@ If your email address is not accepted as a valid business email address and you 
 {{%/notice%}}
 
 ## Simulations
-When you log into Air, you will first see your list of current simulations in your account. Click on a simulation to view it.
+When you log into Air, you will first see your list of current simulations in your account. Click on a simulation to view it. You can power on/off your simulations, edit {{<link url="#edit-simulations" text="edit">}} various aspects of it, {{<link url="#sharing-simulations" text="share it with others">}} and delete it with the **Actions** ![image](https://github.com/user-attachments/assets/b3a58121-fb87-49d3-a506-959010b63908) button on each sim.
 
 You can click the **Topology**, **Nodes** and **Links** tabs for different views. Single click on a node to view its **Node Properties** and double click to open its console.
 
@@ -252,7 +252,7 @@ To add a new service to your sim:
 5. **Service Port**: Internal port where service terminates.
 6. Click **Create**.
 
-Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the OOB network is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see {{<link url="##API-Tokens-&-SSH-Keys" text="API Tokens & SSH Keys">}} below.
+Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the OOB network is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see {{<link url="#SSH-Keys" text="SSH Keys">}} below.
 
 Click **Services > View Services** to view existing services enabled on the sim. Here you can also view important access information such as the port and external host to connect with.
 
