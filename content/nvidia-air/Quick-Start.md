@@ -38,7 +38,9 @@ The ticking timer represents when your sim will automatically sleep, or be **sto
 
 ### Create a Simulation
 
-To create a new sim, click the **Create Simulation** button. You can also click **Workspace > New Simulation**_._ You can create new simulations in multiple different ways.
+To create a new sim, click the **Create Simulation** button. You can also click **Workspace > New Simulation**.
+
+You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a Demo Marketplace for fully preconfigured simulations.
 
 To learn about building custom topologies, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/" text="Custom Topology">}}.
 
@@ -280,6 +282,8 @@ You can also edit your sim from the **Simulations homepage > Actions > Edit Simu
 
 Click your username in the top right and click **Settings** to view your API tokens and SSH keys.
 
+### API Tokens
+
 API tokens allow you to execute authenticated activities using the NVIDIA Air API or SDK.
 
 To generate an API token:
@@ -289,6 +293,7 @@ To generate an API token:
 3. Click **Create**.
 4. Save your token somewhere safe. You will not be able to view it again.
 
+### SSH Keys
 SSH keys must be added here when you wish to enable the SSH service on simulations. They are automatically added to the `oob-mgmt-server`.
 
 To add an SSH key:
