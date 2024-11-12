@@ -38,11 +38,11 @@ The ticking timer represents when your sim will automatically sleep, or be **sto
 
 ### Create a Simulation
 
+You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a {{<exlink url="https://air.nvidia.com/demos" text="Demo Marketplace">}} for fully preconfigured simulations.
+
 To create a new sim, click the **Create Simulation** button. You can also click **Workspace > New Simulation**.
 
-You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a Demo Marketplace for fully preconfigured simulations.
-
-To learn about building custom topologies, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/" text="Custom Topology">}}.
+To learn about custom topologies and creating sims with Air's built-in drag-and-drop editor, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/" text="Custom Topology">}}.
 
 To learn about preconfigured, ready out-of-box simulations, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos/" text="Pre-build Demos">}}.
 
