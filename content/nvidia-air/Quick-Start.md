@@ -44,7 +44,7 @@ To create a new sim, click the **Create Simulation** button. You can also click 
 
 To learn about custom topologies and creating sims with Air's built-in drag-and-drop editor, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/" text="Custom Topology">}}.
 
-To learn about preconfigured, ready out-of-box simulations, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos/" text="Pre-build Demos">}}.
+To learn about preconfigured, ready out-of-box simulations, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos/" text="Pre-built Demos">}}.
 
 ### Import a Topology
 
