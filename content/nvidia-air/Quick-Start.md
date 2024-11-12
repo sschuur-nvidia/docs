@@ -270,7 +270,7 @@ You can also rebuild the entire simulation with **Workspace > Rebuild All Nodes*
 Click **Workspace > Edit Simulation** to edit various aspects of your sim.
 
 - **Name**: Edit the sim name. Simulations can have duplicate names, as they each have a unique ID under the hood.
-- **Organization**: Assign an Organization. You can read more about Organizations [here](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/). This will assign this exact simulation to the Organization, _not a copy_. This means each user with appropriate permissions will have access to this sim.
+- **Organization**: Assign an Organization. You can read more about Organizations {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/" text="here">}}. This will assign this exact simulation to the Organization, _not a copy_. This means each user with appropriate permissions will have access to this sim.
 
 - **Sleep date**: When the simulation will be automatically put to sleep. This means the state of the sim is saved and resources are freed for your account. Nodes are _not_ powered off.
 - **Expiration date**: When the simulation will be automatically deleted.
@@ -303,6 +303,20 @@ To add an SSH key:
 3. Click **Add**.
 
 You can revoke/delete both API tokens and SSH keys if you no longer need them, or they are believed to be compromised.
+
+## Sharing Simulations
+Sharing a simulation with another user is a common use case in Air. 
+
+To share a sim: 
+
+1. Click **Workspace > Manage Users** to share this exact sim, _not a copy_, with any other user. 
+2.	Enter their email address. You can enter multiple addresses.
+3.	Toggle whether they only have **Read Only** access. This means they will not be able to make any modifications to the simulation in Air, such as deleting it or placing it in an Organization. The user can still access consoles and modify the simulation directly.
+4.	Click **Add User**.
+   
+The user(s) will now see the simulation in their Simulations list to access. The user will not receive any notification they were given access to the sim. 
+
+You can also share simulations via Organizations. Read more about them {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/" text="here">}}. 
 
 ## Resource Budgets
 
