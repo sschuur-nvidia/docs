@@ -30,9 +30,9 @@ If your email address is not accepted as a valid business email address and you 
 {{%/notice%}}
 
 ## Simulations
-When you log into Air, you will first see your list of current simulations in your account. Click on a simulation to view it. You can power on/off your simulations, edit {{<link url="#edit-simulations" text="edit">}} various aspects of it, {{<link url="#sharing-simulations" text="share it with others">}} and delete it with the **Actions** ![image](https://github.com/user-attachments/assets/b3a58121-fb87-49d3-a506-959010b63908) button on each sim.
+When you log into Air, you will first see your list of current simulations in your account.You can power on/off your simulations, edit {{<link url="#edit-simulations" text="edit">}} various aspects of it, {{<link url="#sharing-simulations" text="share it with others">}} and delete it with the **Actions** ![image](https://github.com/user-attachments/assets/b3a58121-fb87-49d3-a506-959010b63908) button on each sim.
 
-You can click the **Topology**, **Nodes** and **Links** tabs for different views. Single click on a node to view its **Node Properties** and double click to open its console.
+Click on a simulation to view it. You can click the **Topology**, **Nodes** and **Links** tabs for different views. Single click on a node to view its **Node Properties** and double click to open its console.
 
 The ticking timer represents when your sim will automatically sleep, or be **stored**. You can add more time by clicking the **Actions ![image](https://github.com/user-attachments/assets/b3a58121-fb87-49d3-a506-959010b63908) > Add Time**.
 
