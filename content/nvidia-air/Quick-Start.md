@@ -21,7 +21,7 @@ The following browsers are supported on a best-effort basis:
 
 ## Login
 
-A valid business email address is required to access NVIDIA Air. To log in, go to {{<exlink url="https://air.nvidia.com" text="air.nvidia.com">}}. Enter your business email address, then click **Get Started**:
+To log in, go to {{<exlink url="https://air.nvidia.com" text="air.nvidia.com">}}. Enter your business email address, then click **Next.** A valid business email address is required to access NVIDIA Air. If you do not have an account, create a new one.
 
 {{<img src="/images/guides/nvidia-air/Login.png" alt="" width="800px">}}
 
@@ -29,31 +29,24 @@ A valid business email address is required to access NVIDIA Air. To log in, go t
 If your email address is not accepted as a valid business email address and you believe this to be incorrect, please contact us at {{<exlink url="mailto:air-support@nvidia.com" text="air-support@nvidia.com">}}
 {{%/notice%}}
 
-The page redirects you to the NVIDIA login page. Either click the **Create account** link to sign up or enter your password to log in with an existing account:
+## Simulations
+When you log into Air, you will first see your list of current simulations in your account. Click on a simulation to view it.
 
-{{<img src="/images/guides/nvidia-air/LoginForums.png" alt="" width="800px">}}
+You can click the **Topology**, **Nodes** and **Links** tabs for different views. Single click on a node to view its **Node Properties** and double click to open its console.
 
-## Landing Page
+The ticking timer represents when your sim will automatically sleep, or be **stored**. You can add more time by clicking the **Actions ![image](https://github.com/user-attachments/assets/b3a58121-fb87-49d3-a506-959010b63908) > Add Time**.
 
-After you log in, the NVIDIA Air landing page opens:
+### Create a Simulation
 
-{{<img src="/images/guides/nvidia-air/LandingPagewithCallouts.png" alt="" width="800px">}}
+To create a new sim, click the **Create Simulation** button. You can also click **Workspace > New Simulation**_._ You can create new simulations in multiple different ways.
 
-<div style="margin-top: 20px;"></div>
+To learn about building custom topologies, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/" text="Custom Topology">}}.
 
-- The **Sidebar** provides links to create simulations, configure organizations and settings, and view documentation.
-<!--{{<img src="/images/guides/nvidia-air/SideBar.png">}}-->
-- The **Search simulations** field lets you filter your simulations based on a text match, if you have more than one simulation.
-<!--{{<img src="/images/guides/nvidia-air/SearchSimulation.png">}}-->
-- The **Search filter** lets you filter your list of simulations based on organization, if you belong to multiple organizations.
-<!--{{<img src="/images/guides/nvidia-air/OrganizationDropdown.png" width="250px">}}-->
-- The **Build a Simulation** button lets you build a new simulation. This button appears only if you have no simulations. NVIDIA Air provides {{<link title="Pre-built Demos">}} to help you get started.<!--{{<img src="/images/guides/nvidia-air/BuildSim.png" width="300px">}}-->
+To learn about preconfigured, ready out-of-box simulations, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos/" text="Pre-build Demos">}}.
 
-   When you select **Build a Simulation**, a new window opens displaying different ways to create a simulation.
+### Import a Topology
 
-   {{<img src="/images/guides/nvidia-air/Catalog.png" alt="options to build a simulation from a pre-defined topology, a custom topology, or from the demo marketplace" width="800px">}}
-
-## Import a Topology
+_I think these should go under Custom Topology_
 
 Network topologies describe which nodes a data center is comprised of, how they are configured and which other nodes they are connected to. A format is a way to structure and represent such topologies. Air is able to create simulations out of network topologies structured using a supported format.
 
@@ -203,7 +196,10 @@ with pathlib.Path('/path/to/topology.json').open('r') as topology_file:
 
 {{< /expand >}}
 
-## Export a Topology
+### Export a Topology
+
+_I think these should go under Custom Topology_
+
 
 Existing simulations can be exported into a format representation. More information about this process can be found by visiting the [API documentation](https://air.nvidia.com/api/#/v2/v2_simulations_export_retrieve).
 
@@ -232,174 +228,80 @@ Minimum required SDK version for this feature is `air-sdk>=2.15.0`
 
 {{< /expand >}}
 
-## Simulation Views
+### Node Consoles
 
-Every simulation has a basic view and an advanced view.
+Double click on any node to connect to its console. 
 
-### Basic View
+Click the ![image](https://github.com/user-attachments/assets/9b32b625-9126-4570-82a1-23969cc9b43a)
+ icon to view its login credentials. 
+ 
+ Click the ![image](https://github.com/user-attachments/assets/8e68f8bd-f65c-4525-acfb-b14a2cb9bb4a)
+ button to open the console in its own window.
 
-The basic view of the simulation provides a graphical view of the topology.
+### Services
 
-{{<img src="/images/guides/nvidia-air/BasicView.png" alt="" width="800px">}}
+Enabling services allows more integration with your sim, such as using a preferred SSH client to access your sim, running Grafana, or setting up SNMP polling.
 
-<div style="margin-top: 20px;"></div>
+To add a new service to your sim:
+1. Click **Services > New Services** to create an external connection with your sim.
+2. **Service Name**: Name for your service. Handy for running multiple instances of the same service on different interfaces or ports.
+3. **Interface**: Where the connection terminates. Typically eth0 on the `oob-mgmt-server`.
+4. **Service Type**: NVIDIA Air creates a hyperlink to the URL automatically in the Services panel for _SSH_, _HTTP_ or _HTTPS_ services. For _Other_ services, any port can be used, but Air will not generate a hyperlink. The hyperlink provides a quick way to copy and paste the service if your browser supports it.
+5. **Service Port**: Internal port where service terminates.
+6. Click **Create**.
 
-Select a node in the topology to open a console and connect to that node:
+Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the OOB network is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see {{<link url="##API-Tokens-&-SSH-Keys" text="API Tokens & SSH Keys">}} below.
 
-{{<img src="/images/guides/nvidia-air/Console.png" alt="" width="500px">}}
+Click **Services > View Services** to view existing services enabled on the sim. Here you can also view important access information such as the port and external host to connect with.
 
-### Advanced View
+### Rebuilding & Resetting Nodes
 
-The advanced view has four different panes:
+Single click on a node to view its **Node Properties**. Click **Advanced Properties > Actions** to **Rebuild** or **Reset** the node.
 
-{{<img src="/images/guides/nvidia-air/AdvancedView.png" alt="" width="800px">}}
+- **Rebuild**: Restores the node to its original or default configuration. If the node was created from a demo, or other snapshot, it will revert to that configuration had you just launched a copy.
+- **Reset**: Performs a hard reboot to the node.
 
-- **Guided Tour** provides a detailed description of the simulation, complete with step-by-step instructions on running the demo infrastructure.
-- **Console** provides console connection to the simulation.
-- **Nodes** lists the nodes in the topology; see {{<link url="#nodes" text="Nodes">}} below.
-- **Services** provides optional services, such as SSH; see {{<link url="#services" text="Services">}} below.
+You can also rebuild the entire simulation with **Workspace > Rebuild All Nodes**.
 
-#### Nodes
+### Edit Simulations
 
-Use the **Nodes** pane in the advanced view to see the status, number of CPUs, and amount of memory for each node. Click the **Actions** dropdown for a node and select:
-  - **Rebuild** to restore the node to its default configuration.
-  - **Reset** to issue a hard reset to the node.
-  - **View Console** to connect to the node from a console.
+Click **Workspace > Edit Simulation** to edit various aspects of your sim.
 
-#### Services
+- **Name**: Edit the sim name. Simulations can have duplicate names, as they each have a unique ID under the hood.
+- **Organization**: Assign an Organization. You can read more about Organizations [here](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/). This will assign this exact simulation to the Organization, _not a copy_. This means each user with appropriate permissions will have access to this sim.
 
-Use the **Services** pane in the advanced view to create an external connection into the simulation. You can access the simulation environment using your local preferred SSH client, run Grafana on the [oob-mgmt-server](## "Out-of-band Management Server") and access the Grafana GUI externally, or set up SNMP polling from your local laptop into the simulation environment.
+- **Sleep date**: When the simulation will be automatically put to sleep. This means the state of the sim is saved and resources are freed for your account. Nodes are _not_ powered off.
+- **Expiration date**: When the simulation will be automatically deleted.
 
-<!-- vale off -->
-- **Enable SSH** populates the services panel with an SSH session, which provides a shortcut to enable inbound SSH to the oob-mgmt-server. Use this shortcut to leverage your preferred local SSH client. SSH password authentication is disabled on the oob-mgmt-server by default. To use SSH password authentication, you must upload SSH keys to your user profile; see {{<link url="#user-settings" text="User Settings">}} below.
-<!-- vale on -->
-- **Add Service** opens the Create Service dialog so you can add a service:
+You can also edit your sim from the **Simulations homepage > Actions > Edit Simulation**.
 
-  {{<img src="/images/guides/nvidia-air/ServicesCreate.png" alt="" width="400px">}}
 
-  1. In the **Service Name** field, enter the name of the service.
-  2. From the **Interface** dropdown, select the name of the interface in the simulation where the connection terminates. This is typically the eth0 interface on the oob-mgmt-server.
-  3. From the **Service Type** dropdown, select the type of service you want to create. If you select *SSH*, *HTTP* or *HTTPS*, NVIDIA Air creates a hyperlink to the URL automatically in the Services panel. If you select *Other*, you can select any port, but there is no hyperlink. The hyperlink provides a quick way to copy and paste the service.
-  4. In the **Service Port** field, specify the internal port where the service terminates.
-  5. Click **Submit** to create the service.
-<!-- vale off -->
+## API Tokens & SSH Keys
 
-The example below shows a service for TCP port 1022. The external port is 24886. Connecting to this service requires connecting to worker06.air.nvidia.com on TCP port 24886, which forwards and redirects to the oob-mgmt-server on TCP port 1022.
-<!-- vale on -->
+Click your username in the top right and click **Settings** to view your API tokens and SSH keys.
 
-{{<img src="/images/guides/nvidia-air/ServicesCreated.png" alt="" width="400px">}}
+API tokens allow you to execute authenticated activities using the NVIDIA Air API or SDK.
 
-<div style="margin-top: 20px;"></div>
+To generate an API token:
 
-## Log in to Virtual Machines
+1. **Name** your API token.
+2. Set an **Expiration Date**.
+3. Click **Create**.
+4. Save your token somewhere safe. You will not be able to view it again.
 
-To log in to your virtual machines, use the operating system default credentials. Some operating systems require you to change your password after the first successful login.
+SSH keys must be added here when you wish to enable the SSH service on simulations. They are automatically added to the `oob-mgmt-server`.
 
-{{< tabs "TabID112 ">}}
-{{< tab "oob-mgmt-server ">}}
+To add an SSH key:
 
-Username: `ubuntu`
+1. **Name** your SSH key.
+2. Copy your **Public Key**.
+3. Click **Add**.
 
-Password: `nvidia`
-
-{{< /tab >}}
-{{< tab "oob-mgmt-switch ">}}
-
-Username: `cumulus`
-
-Password: `cumulus`
-
-{{< /tab >}}
-{{< tab "NVIDIA Cumulus Linux ">}}
-
-{{< tabs "TabID127 ">}}
-{{< tab "Release 4.2 and later ">}}
-
-Username: `cumulus`
-
-Password: `cumulus`
-
-{{< /tab >}}
-{{< tab "Release 4.1 and earlier ">}}
-
-Username: `cumulus`
-
-Password: `CumulusLinux!`
-
-{{< /tab >}}
-{{< /tabs >}}
-
-{{< /tab >}}
-{{< tab "NVIDIA NetQ ">}}
-
-Username: `cumulus`
-
-Password: `cumulus`
-
-{{< /tab >}}
-{{< tab "SONiC ">}}
-
-Username: `admin`
-
-Password: `YourPaSsWoRd`
-
-{{< /tab >}}
-{{< tab "Ubuntu ">}}
-
-Username: `ubuntu`
-
-Password: `nvidia`
-
-{{< /tab >}}
-{{< /tabs >}}
-
-## Manage a Simulation
-
-From the NVIDIA Air landing page, you can manage your simulations.
-
-{{<img src="/images/guides/nvidia-air/ManagingSimwithCallouts.png" alt="" width="900px">}}
-
-<div style="margin-top: 20px;"></div>
-
- Each public simulation has three options:
-- **Power On or Off** wakes the simulation up or puts it to sleep.
-- **Edit** lets you change the simulation name and organization.
-- **Delete** removes the simulation.
-
-## User Settings
-
-The **Settings** menu in the sidebar provides options to generate API tokens and upload SSH keys.
-
-{{<img src="/images/guides/nvidia-air/UserAPITokenTab.png" alt="" width="200px">}}
-
-### API Tokens
-
-From the **Settings** section, select **API Tokens** to generate an authentication token which allows you to execute authenticated activities using the NVIDIA Air API or SDK.
-
-In the API Tokens window, provide a name and expiration date (optional) for the token, then click **Create**.
-
-{{<img src="/images/guides/nvidia-air/UserAPITokenCreate.png" alt="" width="300px">}}
-
-<div style="margin-top: 20px;"></div>
-
-NVIDIA Air generates a token that you can use to access the API and SDK.
-
-{{<img src="/images/guides/nvidia-air/UserAPITokenGenerated.png" alt="" width="600px">}}
-
-### SSH Keys
-
-From the **Settings** section, select **SSH Keys** to upload your public SSH key. Creating a simulation and enabling SSH allows for passwordless authentication.
-
-In the SSH keys window, provide a name and enter your public key, then click **Add**.
-
-{{<img src="/images/guides/nvidia-air/UserSSHKeys.png" alt="" width="800px">}}
-
-<div style="margin-top: 20px;"></div>
-
-The SSH keys upload automatically to the oob-mgmt-server.
+You can revoke/delete both API tokens and SSH keys if you no longer need them, or they are believed to be compromised.
 
 ## Resource Budgets
 
+_this may want to go under Orgs?_
 The number of simulation resources a user can consume is limited for each user's account. For an account using a valid business email, a user is granted the following limits:
 
 - 60 vCPUs
