@@ -21,30 +21,29 @@ The following browsers are supported on a best-effort basis:
 
 ## Login
 
-To log in, go to {{<exlink url="https://air.nvidia.com" text="air.nvidia.com">}}. Enter your business email address, then click **Next.** A valid business email address is required to access NVIDIA Air. If you do not have an account, create a new one.
+To log in, go to [air.nvidia.com](https://air.nvidia.com/). Enter your business email address, then click **Next.** A valid business email address is required to access NVIDIA Air. If you do not have an account, create a new one.
 
 {{<img src="/images/guides/nvidia-air/Login.png" alt="" width="800px">}}
 
 {{%notice note%}}
-If your email address is not accepted as a valid business email address and you believe this to be incorrect, please contact us at {{<exlink url="mailto:air-support@nvidia.com" text="air-support@nvidia.com">}}
+If your email address is not accepted as a valid business email address and you believe this to be incorrect, please contact us at [air-support@nvidia.com](mailto:air-support@nvidia.com)
 {{%/notice%}}
 
 ## Simulations
-When you log into Air, you will first see your list of current simulations in your account.You can power on/off your simulations, edit {{<link url="#edit-simulations" text="edit">}} various aspects of it, {{<link url="#sharing-simulations" text="share it with others">}} and delete it with the **Actions** ![image](https://github.com/user-attachments/assets/b3a58121-fb87-49d3-a506-959010b63908) button on each sim.
+When you log into Air, you will first see your list of current simulations in your account.You can power on/off your simulations, [edit](#edit-simulations) various aspects of it, [share it with others](#sharing-simulations) and delete it with the **Actions** ![image](https://github.com/user-attachments/assets/b3a58121-fb87-49d3-a506-959010b63908) button on each sim.
 
 Click on a simulation to view it. You can click the **Topology**, **Nodes** and **Links** tabs for different views. Single click on a node to view its **Node Properties** and double click to open its console.
 
 The ticking timer represents when your sim will automatically sleep, or be **stored**. You can add more time by clicking the **Actions ![image](https://github.com/user-attachments/assets/b3a58121-fb87-49d3-a506-959010b63908) > Add Time**.
 
 ### Create a Simulation
-
-You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a {{<exlink url="https://air.nvidia.com/demos" text="Demo Marketplace">}} for fully preconfigured simulations.
+You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a [Demo Marketplace (https://air.nvidia.com/demos) for fully preconfigured simulations.
 
 To create a new sim, click the **Create Simulation** button. You can also click **Workspace > New Simulation**.
 
-To learn about custom topologies and creating sims with Air's built-in drag-and-drop editor, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/" text="Custom Topology">}}.
+To learn about custom topologies and creating sims with Air's built-in drag-and-drop editor, visit [Custom Topology](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/).
 
-To learn about preconfigured, ready out-of-box simulations, visit {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos/" text="Pre-built Demos">}}.
+To learn about preconfigured, ready out-of-box simulations, visit [Pre-Built Demos](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos).
 
 ### Node Consoles
 
@@ -53,7 +52,7 @@ Double click on any node to connect to its console.
 Click the ![image](https://github.com/user-attachments/assets/9b32b625-9126-4570-82a1-23969cc9b43a)
  icon to view its login credentials. 
  
- Click the ![image](https://github.com/user-attachments/assets/8e68f8bd-f65c-4525-acfb-b14a2cb9bb4a)
+Click the ![image](https://github.com/user-attachments/assets/8e68f8bd-f65c-4525-acfb-b14a2cb9bb4a)
  button to open the console in its own window.
 
 ### Services
@@ -68,7 +67,7 @@ To add a new service to your sim:
 5. **Service Port**: Internal port where service terminates.
 6. Click **Create**.
 
-Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the OOB network is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see {{<link url="#SSH-Keys" text="SSH Keys">}} below.
+Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the OOB network is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see [SSH Keys](#SSH-Keys) below.
 
 Click **Services > View Services** to view existing services enabled on the sim. Here you can also view important access information such as the port and external host to connect with.
 
@@ -86,7 +85,7 @@ You can also rebuild the entire simulation with **Workspace > Rebuild All Nodes*
 Click **Workspace > Edit Simulation** to edit various aspects of your sim.
 
 - **Name**: Edit the sim name. Simulations can have duplicate names, as they each have a unique ID under the hood.
-- **Organization**: Assign an Organization. You can read more about Organizations {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/" text="here">}}. This will assign this exact simulation to the Organization, _not a copy_. This means each user with appropriate permissions will have access to this sim.
+- **Organization**: Assign an Organization. You can read more about Organizations [here](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations). This will assign this exact simulation to the Organization, _not a copy_. This means each user with appropriate permissions will have access to this sim.
 
 - **Sleep date**: When the simulation will be automatically put to sleep. This means the state of the sim is saved and resources are freed for your account. Nodes are _not_ powered off.
 - **Expiration date**: When the simulation will be automatically deleted.
@@ -132,11 +131,9 @@ To share a sim:
    
 The user(s) will now see the simulation in their Simulations list to access. The user will not receive any notification they were given access to the sim. 
 
-You can also share simulations via Organizations. Read more about them {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/" text="here">}}. 
+You can also share simulations via Organizations. Read more about them [here](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations). 
 
 ## Resource Budgets
-
-_this may want to go under Orgs?_
 The number of simulation resources a user can consume is limited for each user's account. For an account using a valid business email, a user is granted the following limits:
 
 - 60 vCPUs
@@ -151,7 +148,7 @@ NVIDIA users are granted the following limits:
 - 1TB storage
 - 5 running simulations
 
-Individual user account resources are great for running demos and smaller simulations but to run larger simulations it is best to use {{<link title="Organizations">}}.
+Individual user account resources are great for running demos and smaller simulations but to run larger simulations it is best to use [Organizations](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations).
 Organizations have a much higher resource budget than an individual user account. The default resource budget for an organization is:
 
 - 300 vCPUs
@@ -164,4 +161,4 @@ The budgets for organizations can be adjusted based on the needs of that organiz
 
 ## Other Notes
 
-- Using {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/cumulus-linux/Cumulus-Linux-in-a-Virtual-Environment/" text="Cumulus Linux in a Virtual Environment">}}
+- Using [Cumulus Linux in a Virtual Environment](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux/Cumulus-Linux-in-a-Virtual-Environment/)
