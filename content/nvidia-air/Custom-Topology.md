@@ -15,7 +15,7 @@ You can also click the {{<exlink url="https://air.nvidia.com/build" text="air.nv
 
 
 
-## The Drag-and-Drop Builder
+## The Drag-and-Drop Topology Builder
 
 One way to create fully custom simulations is with the built-in topology builder. It provides a drag-and-drop editor to design any custom network.
 
@@ -74,11 +74,11 @@ You can upload DOT files directly into Air to generate a topology. This allows y
 Here is an example of a simple topology DOT file with 1 spine, 2 leaves and 2 servers connected to each leaf.
 ```
 graph "Demo" {
-  "spine01" [ function="spine" memory="4096" os="sonic-vs-202305" cpu="2" storage="123"]
+  "spine01" [ function="spine" memory="4096" os="sonic-vs-202305" cpu="2" ]
   "leaf01" [ function="leaf" memory="4096" os="sonic-vs-202305" cpu="2" nic_model="e1000"]
   "leaf02" [ function="leaf" memory="4096" os="sonic-vs-202305" cpu="2" secureboot="true"]
-  "server01" [ function="server" memory="2048" os="generic/ubuntu2004" cpu="2"]
-  "server02" [ function="server" memory="2048" os="generic/ubuntu2204" cpu="3"]
+  "server01" [ function="server" memory="2048" os="generic/ubuntu2404" cpu="2"]
+  "server02" [ function="server" memory="2048" os="generic/ubuntu2204" cpu="3" storage="20"]
     "leaf01":"eth1" -- "server01":"eth1"
     "leaf02":"eth1" -- "server02":"eth1"
     "leaf01":"eth2" -- "spine01":"eth1"
@@ -86,18 +86,24 @@ graph "Demo" {
 }
 ```
 
-### DOT File Creation & Examples
+### DOT Syntax
 DOT files use the `.dot` file extention. They define nodes, attributes and connections for generating a topology of a networks. They are inherently 
 This list cannot be exhaustive because users can define new passthrough attributes and use them with custom templates.
 
-Below are some common use cases for customizing your topology with DOT files.
+Below are some common use cases for customizing your topology with DOT files. Air is not limited to accepting only these options. Contact NVIDIA support for more information.
+
+#### Operating System
+You can set the OS of the node with the `os` option: 
+```"server" [os="cumulus-vx-5.10.1"]```
+
+For a list of available operating systems, view the **Operating System** dropdown in the **Node Properties** when using the {{<link url="#The-Drag-and-Drop-Topology-Builder" text="drag-and-drop editor">}}.
 
 #### Disk Space
-By default, nodes in Air have 10GB of hard disk space. You can give more with the `storage` option:
+By default, nodes in Air have 10GB of hard disk space. You can give more with the `storage` option, in GB:
 
-```"server" [os="generic/ubuntu1804" storage="20"]```
+```"server" [os="generic/ubuntu2404" storage="20"]```
 
-If the node Air does not recognize the increase in storage, you can perform the following commands in the node to extend the partition and resize the fileystem: 
+If the node does not recognize the increase in storage, you can perform the following commands in the node to extend the partition and resize the fileystem: 
 ```
 sudo growpart /dev/vda 1
 sudo resize2fs /dev/vda1
@@ -112,27 +118,25 @@ df -h | grep vda1
 
 #### CPU
 You can customize the CPU with the `cpu` option:
-```"server" [os="generic/ubuntu1804" cpu="4"]```
-
-#### Operating System
-You can set the OS of the node with the `os` option: 
+```"server" [os="generic/ubuntu2404" cpu="4"]```
 
 
 #### Creating Connections
-Interface naming and ordering is dictated by the guest OS’s behavior. This usually means that the interface naming will follow the OS’s conventions and the names in the DOT file. The important thing to note is that Air will attach interfaces to the VM in the order the links are defined in the DOT file, so it’s critical that cables are defined in order. 
+You can create port connections by defining the node and its port with another.
+```
+"leaf01":"swp49" -- "leaf02":"swp49"
+"leaf01":"swp50" -- "leaf02":"swp50"
+```
 
-For example, here is a **DO**:
-```
-“switch”:”swp1” -- “leaf01”:”swp1”
-“switch”:”swp2” -- “leaf01”:”swp2”
-“switch”:”swp3” -- “leaf01”:”swp3”
-```
-Here is a **DON'T**. Interfaces connect to the VM in the wrong order:
-```
-“switch”:”swp2” -- “leaf01”:”swp2”
-“switch”:”swp1” -- “leaf01”:”swp1”
-“switch”:”swp3” -- “leaf01”:”swp3”
-```
+#### Memory
+You can customize the RAM with the `memory` option, in MB: 
+```"server" [os="generic/ubuntu2404"  memory="2048"]```
+
+### Examples
+Labs in the {{<exlink url="https://air.nvidia.com/demos" text="Demo Marketplace">} are maintained with external GitLab repositories. Here you can find the `topology.dot` file used to build the lab to reference from.
+
+To access them, click on the **Documentation** button on any lab in the Demo Marketplace. It will lead you to the GitLab repo for the lab. You may have to explore the GitLab a bit to find the `topology.dot` file. 
+
 ### Uploading a DOT
 To upload a DOT file into Air:
 1.	Click the **Create Simulation** button. You can also click **Workspace > New Simulation**. 
