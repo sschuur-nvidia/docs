@@ -5,7 +5,7 @@ weight: 40
 product: NVIDIA Air
 ---
 
-NVIDIA Air fully supports the creation of custom topologies. This feature augments the pre-built demo infrastructure.
+NVIDIA Air offers multiple means of creating custom topologies and new simulations.
 
 To access custom topologies, click the **Build Your Own** card on the Create a Simulation page:
 
@@ -13,111 +13,142 @@ To access custom topologies, click the **Build Your Own** card on the Create a S
 
 You can also click the {{<exlink url="https://air.nvidia.com/build" text="air.nvidia.com/build">}} link.
 
-## Custom Topology Landing Page
 
-The custom topology landing page is a blank canvas that you can use to design any network.
 
-{{<img src="/images/guides/nvidia-air/CustomTopology.png" width="800px">}}
+## The Drag-and-Drop Builder
 
-### Canvas Overview
+One way to create fully custom simulations is with the built-in topology builder. It provides a drag-and-drop editor to design any custom network.
 
-The left panel lists the nodes you can use to create the custom topology:
-- Cumulus VX switches
-- Ubuntu servers
-- SONiC switches
-- Generic nodes
-<!-- vale off -->
-The toolbar at the top of the custom topology landing page manages the topology. Click the default name **My Topology Project** for additional management options.
-<!-- vale on -->
+To get started, perform the following instructions:
 
-{{<img src="/images/guides/nvidia-air/CustomTopology_Management.png" width="500px">}}
+1. Click the **Create Simulation** button. You can also click **Workspace > New Simulation**.
+2. Give your simulation a **Name**.
+3. Select **Blank Canvas** as the **Type**.
+4. Optionally, assign an Organization to the sim. Read more about them in {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/" text="Organizations">}}. 
+5. Optionally, add a **ZTP script** to the simulation. You can read more about them in {{<link url="#ZTP-Scripts" text="ZTP Scripts">}}.
+     - Toggle on the **Apply ZTP Template** button.
+     - Enter your ZTP script.
+     - A default script is prefilled to help you get started. 
+6. Click **Create**.
 
-- **Open Build** uploads a JSON-structured custom topology build. This is not the same as importing a `topology.dot` Graphviz format document. The JSON format structure is unique to the custom topology builder tool.
-- **Save Build** exports a JSON-structured custom topology that represents the canvas. Only use the custom topology builder application to read and interpret this JSON file; do not open and edit the file in a text editor.
-- **Export Build** exports the topology as a Graphviz format `topology.dot` file. You can import this file into the NVIDIA Air simulation platform to launch a custom topology.
-- **Download SVG** downloads an image in SVG format that defines your topology.
-- **Rename Project** renames the project.
-- **New Project** creates a new project.
+#### ZTP Scripts
+You can add an optional **ZTP script** to the simulation when creating a new one. The ZTP script will be copied directly as-is into the `oob-mgmt-server` of the simulation. Any node making a ZTP request on the OOB management network has access to this ZTP script through a DHCP server and web server running on the `oob-mgmt-server`.
 
-### Add Nodes
+A default script is prefilled to help you get started. It implements some common ZTP features on Cumulus Linux, like changing the default password or downloading SSH keys. You can modify it to your needs if you like.
 
-To add a node, drag and drop it from the left panel.
+### Manage Nodes
 
-{{<img src="/images/guides/nvidia-air/CustomTopology_AddingNodes.png" width="800px">}}
+Drag and drop servers and switches from the **System Palette** on the right into the workspace.
 
-### Edit Nodes
+You can choose your hardware model based on available NVIDIA Spectrum (SNXXXX) switches. This does not affect the simulation but acts as a macro to pre-populate the number of ports per switch model. You don’t need to use each port.
 
-After you add a node, you can edit it as needed. Click the node to select it and configure it using the options in the right panel.
-- **Name** is the hostname of the node.
-- **OS** is the operating system version on the node. The supported operating system versions are in a dropdown list.
-- **Memory** is the amount of RAM on the node. The default is 1GB.
-- **CPU** is the number of CPUs allocated to the node. The default is 1 CPU.
-- **Role** is an advanced feature that defines the role of the node to affect boot order. You typically do not have to assign a role.
-- **Hardware Model** pre-populates the ports based on a specific hardware model of the switch you select. This does not affect the simulation but acts as a macro to pre-populate the number of ports per switch model.
-- **Ports** adds, renames, and edits port location and information for the diagram. Press the breakout button (<-||->) to simulate breaking out a port into a group of four.
+Click on a node to view its **Node Properties**.
 
-   {{<img src="/images/guides/nvidia-air/CustomTopology_PortsBreakout.png" width="800px">}}
+- **Name**: Node hostname.
+- **Operating System**: OS automatically installed onto the node. No need to boot into ONIE or install it yourself.
+- **CPUs**: Number of CPUs. Default 1-2 GB depending on Spectrum switch selected.
+- **Memory (GB)**: Amount of RAM. Default 2 GB.
+- **Storage (GB)**: Amount of hard disk space. Default 10 GB.
+- **Connectors**: Choose an available port to directly connect to any port on another node.
 
-### Connect Nodes
+There are also various **Advanced Options**, such as enabling **UEFI Secure Boot**.
 
-To connect two nodes together, click a port on one node and drag it to the port on the other node. This draws a line between the two ports to show the connection.
+When you are done creating your topology, click **Workspace > Start Simulation** to start the sim. **You cannot add, remove or edit nodes once the sim is started for the first time.**
 
-{{<img src="/images/guides/nvidia-air/CustomTopology_Link.png" width="800px">}}
+### OOB Management Network
 
-### ZTP Script
+On the **System Palette**, there is an option to toggle **Enable OOB**. Toggling this setting enables the out-of-band management network 
 
-You can include a custom ZTP script as part of the network design. When you create the simulation, NVIDIA Air copies the ZTP script, exactly as pasted into the text field, onto the oob-mgmt-server. Any network node making a ZTP request on the OOB management network has access to this ZTP script through a DHCP server and web server running on the oob-mgmt-server.
+This setting creates an OOB network for you that connects all nodes with each other. It also adds an `oob-mgmt-switch` and `oob-mgmt-server` to your simulation. When you {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Quick-Start/#services" text="enable SSH">}} in your sim, you will SSH into the oob-mgmt-server, making this node an ideal start point for configuration. Air handles the configuration automatically for you.
 
-To upload a ZTP script, click **ZTP** in the top right of the canvas:
+You can manually add more `oob-mgmt-switches` and `oob-mgmt-servers` to your simulation if you need. But the **Enable OOB** toggle must be enabled to use the OOB network.
 
-{{<img src="/images/guides/nvidia-air/ZTP.png" width="400px">}}
 
-A popup window opens where you can paste the contents of the ZTP script. The popup window contains a default script. The default script is a guide to implement common ZTP features on Cumulus Linux, such as:
-- Disable password expiry
-- Make the `cumulus` user passwordless for `sudo`
-- Download SSH keys for key based SSH
+## Custom Topologies with DOT Files
+Air supports creating custom topologies using DOT files. 
 
-{{<img src="/images/guides/nvidia-air/ZTPPopup.png" width="800px">}}
+DOT files are the filetype used with the open-source graph visualization software Graphviz. They are simple, text-based files and allow for quick and easy customization. 
 
-After you apply the ZTP script, ZTP in the top right of the canvas changes color from grey to green, indicating that ZTP is now active on your oob-mgmt-server.
+You can upload DOT files directly into Air to generate a topology. This allows you to easily share and create copies of a topology and save the topology somewhere in a reusable file. You can modify them in any text editor, like notepad or VS Code.
 
-{{<img src="/images/guides/nvidia-air/ZTPActive.png" width="400px">}}
+Here is an example of a simple topology DOT file with 1 spine, 2 leaves and 2 servers connected to each leaf.
+```
+graph "Demo" {
+  "spine01" [ function="spine" memory="4096" os="sonic-vs-202305" cpu="2" storage="123"]
+  "leaf01" [ function="leaf" memory="4096" os="sonic-vs-202305" cpu="2" nic_model="e1000"]
+  "leaf02" [ function="leaf" memory="4096" os="sonic-vs-202305" cpu="2" secureboot="true"]
+  "server01" [ function="server" memory="2048" os="generic/ubuntu2004" cpu="2"]
+  "server02" [ function="server" memory="2048" os="generic/ubuntu2204" cpu="3"]
+    "leaf01":"eth1" -- "server01":"eth1"
+    "leaf02":"eth1" -- "server02":"eth1"
+    "leaf01":"eth2" -- "spine01":"eth1"
+    "spine01":"eth2" -- "leaf02":"eth2"
+}
+```
 
-## Build a Custom Topology
+### DOT File Creation & Examples
+DOT files use the `.dot` file extention. They define nodes, attributes and connections for generating a topology of a networks. They are inherently 
+This list cannot be exhaustive because users can define new passthrough attributes and use them with custom templates.
 
-To build a custom topology, you can either:
-- Start a simulation directly from the topology builder.
-- Export the topology files and upload them directly into NVIDIA Air.
+Below are some common use cases for customizing your topology with DOT files.
 
-{{<img src="/images/guides/nvidia-air/StartSimulation.png" width="400px">}}
+#### Disk Space
+By default, nodes in Air have 10GB of hard disk space. You can give more with the `storage` option:
 
-### Start a Simulation Directly
+```"server" [os="generic/ubuntu1804" storage="20"]```
 
-To start a simulation directly from the topology builder, click the **START SIMULATION** button. The simulation starts and redirects you to the NVIDIA Air landing page. The topology and the diagram link automatically to your simulation.
+If the node Air does not recognize the increase in storage, you can perform the following commands in the node to extend the partition and resize the fileystem: 
+```
+sudo growpart /dev/vda 1
+sudo resize2fs /dev/vda1
+```
 
-### Export a Custom Topology
+Verify the change was applied:
 
-To export a custom topology, click the **EXPORT** button to download two files:
-- `topology.dot` is the network definition in Graphviz format.
-- `topology.svg` is the network diagram in Scalable Vector Graphics format.
+```
+df -h | grep vda1
+/dev/vda1        20G  2.1G   18G  11% /
+```
 
-To upload the `topology.dot` and `topology.svg` files:
-1. In the sidebar, click **Create a Simulation** to open the Create a Simulation window.
-2. Click **Build Your Own**, then click **Upload a topology file**.
+#### CPU
+You can customize the CPU with the `cpu` option:
+```"server" [os="generic/ubuntu1804" cpu="4"]```
 
-   {{<img src="/images/guides/nvidia-air/UploadTopology1.png" width="300px">}}
+#### Operating System
+You can set the OS of the node with the `os` option: 
 
-3. Drag the `topology.dot` file onto the **Drop a topology file here** card and the `topology.svg` file onto the **Drop a diagram file here** card, then click **SUBMIT**.
 
-## NetQ Integration
+#### Creating Connections
+Interface naming and ordering is dictated by the guest OS’s behavior. This usually means that the interface naming will follow the OS’s conventions and the names in the DOT file. The important thing to note is that Air will attach interfaces to the VM in the order the links are defined in the DOT file, so it’s critical that cables are defined in order. 
 
-To include NetQ with any simulation, make sure the NetQ toggle switch is on, which is the default behavior.
+For example, here is a **DO**:
+```
+“switch”:”swp1” -- “leaf01”:”swp1”
+“switch”:”swp2” -- “leaf01”:”swp2”
+“switch”:”swp3” -- “leaf01”:”swp3”
+```
+Here is a **DON'T**. Interfaces connect to the VM in the wrong order:
+```
+“switch”:”swp2” -- “leaf01”:”swp2”
+“switch”:”swp1” -- “leaf01”:”swp1”
+“switch”:”swp3” -- “leaf01”:”swp3”
+```
+### Uploading a DOT
+To upload a DOT file into Air:
+1.	Click the **Create Simulation** button. You can also click **Workspace > New Simulation**. 
+2.	Give your simulation a **Name**.
+3.	Select **DOT** as the **Type**.
+4.	Drag or select your DOT file to upload.
+5. Optionally, assign an Organization to the sim. Read more about them in {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/" text="Organizations">}}. 
+6. Optionally, add a **ZTP script** to the simulation. You can read more about them in {{<link url="#ZTP-Scripts" text="ZTP Scripts">}}.
+     - Toggle on the **Apply ZTP Template** button.
+     - Enter your ZTP script.
+     - A default script is prefilled to help you get started. 
+7. Click **Create**.
 
-{{<img src="/images/guides/nvidia-air/NetQSlider.png" width="240px">}}
+Air will build a custom topology based on the DOT file. 
 
-To disable NetQ, click the toggle switch to disable it.
-
-## Create a Custom Topology from the Production Network
+### Create a Custom Topology from the Production Network
 
 This section describes how to create a simulation based on an existing production deployment.
 
