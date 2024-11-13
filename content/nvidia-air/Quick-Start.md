@@ -24,6 +24,7 @@ The following browsers are supported on a best-effort basis:
 To log in, go to [air.nvidia.com](https://air.nvidia.com/). Enter your business email address, then click **Next.** A valid business email address is required to access NVIDIA Air. If you do not have an account, create a new one.
 
 {{<img src="/images/guides/nvidia-air/Login.png" alt="" width="800px">}}
+[](/images/guides/nvidia-air/Login.png)
 
 {{%notice note%}}
 If your email address is not accepted as a valid business email address and you believe this to be incorrect, please contact us at [air-support@nvidia.com](mailto:air-support@nvidia.com)
