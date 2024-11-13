@@ -130,7 +130,7 @@ You can customize the RAM with the `memory` option, in MB:
 ```"server" [os="generic/ubuntu2404"  memory="2048"]```
 
 ### Examples
-Labs in the {{<exlink url="https://air.nvidia.com/demos" text="Demo Marketplace">}} are maintained with external GitLab repositories. Here you can find the `topology.dot` file used to build the lab to reference from. Many demonstrate how to use more options beyond what is listed above.
+Labs in the [air.nvidia.com/demos](Demo Marketplace) are maintained with external GitLab repositories. Here you can find the `topology.dot` file used to build the lab to reference from. Many demonstrate how to use more options beyond what is listed above.
 
 To access them, click on the **Documentation** button on any lab in the Demo Marketplace. It will lead you to the GitLab repo for the lab. You may have to explore the GitLab a bit to find the `topology.dot` file. 
 
@@ -140,8 +140,8 @@ To upload a DOT file into Air:
 2.	Give your simulation a **Name**.
 3.	Select **DOT** as the **Type**.
 4.	Drag or select your DOT file to upload.
-5. Optionally, assign an Organization to the sim. Read more about them in {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/" text="Organizations">}}. 
-6. Optionally, add a **ZTP script** to the simulation. You can read more about them in {{<link url="#ZTP-Scripts" text="ZTP Scripts">}}.
+5. Optionally, assign an Organization to the sim. Read more about them in [Organizations](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/). 
+6. Optionally, add a **ZTP script** to the simulation. You can read more about them in [ZTP Scripts](#ztp-scripts).
      - Toggle on the **Apply ZTP Template** button.
      - Enter your ZTP script.
      - A default script is prefilled to help you get started. 
@@ -334,12 +334,12 @@ Minimum required SDK version for this feature is `air-sdk>=2.15.0`
 This section describes how to create a simulation based on an existing production deployment.
 
 ### Gather cl-support from the Production Network
-
-Use {{<exlink url="https://gitlab.com/cumulus-consulting/features/cl_support_ansible" text="these playbooks">}} to gather the `cl-support` script output. The `ReadMe` in the repository provides instructions on how to run the playbook to gather the `cl-support` output.
+Use [these playbooks](https://gitlab.com/cumulus-consulting/features/cl_support_ansible)
+ to gather the `cl-support` script output. The `ReadMe` in the repository provides instructions on how to run the playbook to gather the `cl-support` output.
 
 ### Create topology.dot from the Production Network
-
-After you obtain the `cl-support` output, you can create a `topology.dot` file with {{<exlink url="https://gitlab.com/cumulus-consulting/features/cl_support_lldp_parser" text="this script">}}. You can run the script using `python3`. Here is sample output:
+After you obtain the `cl-support` output, you can create a `topology.dot` file with [this script](https://gitlab.com/cumulus-consulting/features/cl_support_lldp_parser)
+. You can run the script using `python3`. Here is sample output:
 
 ```
 $ python3 cl_support_lldp_parser.py
@@ -394,6 +394,8 @@ graph dc1 {
 
 After you create the simulation, you can restore the configuration files.
 
-This {{<exlink url="https://gitlab.com/cumulus-consulting/features/cl_support_file_extractor" text="python script">}} pulls out all the relevant files and collates them into folders so you can use them to restore configuration from inside the simulation.
+This [python script](https://gitlab.com/cumulus-consulting/features/cl_support_file_extractor)
+pulls out all the relevant files and collates them into folders so you can use them to restore configuration from inside the simulation.
 
-You can also use the {{<exlink url="https://gitlab.com/cumulus-consulting/features/simple-iac" text="infrastructure as code">}} Ansible playbook to restore configurations.
+You can also use the [infrastructure as code](https://gitlab.com/cumulus-consulting/features/simple-iac)
+Ansible playbook to restore configurations.
