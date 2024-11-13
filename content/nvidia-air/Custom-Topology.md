@@ -17,11 +17,13 @@ One way to create fully custom simulations is with the built-in topology builder
 
 To get started, perform the following instructions:
 
-1. Click the **Create Simulation** button. You can also click **Workspace > New Simulation** or visit {{<exlink url="https://air.nvidia.com/build" text="air.nvidia.com/build">}}.
+[air.nvidia.com/build](https://air.nvidia.com/build)
+
+1. Click the **Create Simulation** button. You can also click **Workspace > New Simulation** or visit [air.nvidia.com/build](https://air.nvidia.com/build).
 2. Give your simulation a **Name**.
 3. Select **Blank Canvas** as the **Type**.
-4. Optionally, assign an Organization to the sim. Read more about them in {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/" text="Organizations">}}. 
-5. Optionally, add a **ZTP script** to the simulation. You can read more about them in {{<link url="#ZTP-Scripts" text="ZTP Scripts">}}.
+4. Optionally, assign an Organization to the sim. Read more about them in [Organizations](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/). 
+5. Optionally, add a **ZTP script** to the simulation. You can read more about them in [ZTP Scripts](#ztp-scripts).
      - Toggle on the **Apply ZTP Template** button.
      - Enter your ZTP script.
      - A default script is prefilled to help you get started. 
@@ -30,7 +32,7 @@ To get started, perform the following instructions:
 #### ZTP Scripts
 You can add an optional **ZTP script** to the simulation when creating a new one. The ZTP script will be copied directly as-is into the `oob-mgmt-server` of the simulation. Any node making a ZTP request on the OOB management network has access to this ZTP script through a DHCP server and web server running on the `oob-mgmt-server`.
 
-A default script is prefilled to help you get started. It implements some common ZTP features on Cumulus Linux, like changing the default password or downloading SSH keys. You can modify it to your needs if you like.
+A default script is prefilled to help you get started. It implements some common ZTP features on Cumulus Linux, such as changing the default password or downloading SSH keys. You can modify it to your needs.
 
 ### Manage Nodes
 
@@ -54,8 +56,8 @@ When you are done creating your topology, click **Workspace > Start Simulation**
 ### OOB Management Network
 
 On the **System Palette**, there is an option to toggle **Enable OOB**. Toggling this setting enables the out-of-band management network 
-
-This setting creates an OOB network for you that connects all nodes with each other. It also adds an `oob-mgmt-switch` and `oob-mgmt-server` to your simulation. When you {{<exlink url="https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Quick-Start/#services" text="enable SSH">}} in your sim, you will SSH into the oob-mgmt-server, making this node an ideal start point for configuration. Air handles the configuration automatically for you.
+This setting creates an OOB network for you that connects all nodes with each other. It also adds an `oob-mgmt-switch` and `oob-mgmt-server` to your simulation. When you [enable SSH](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Quick-Start/#services)
+in your sim, you will SSH into the oob-mgmt-server, making this node an ideal start point for configuration. Air handles the configuration automatically for you.
 
 You can manually add more `oob-mgmt-switches` and `oob-mgmt-servers` to your simulation if you need. But the **Enable OOB** toggle must be enabled to use the OOB network.
 
@@ -83,13 +85,15 @@ graph "Demo" {
     "spine01":"eth2" -- "leaf02":"eth2"
 }
 ```
-Below are some common use cases for customizing your topology with DOT files. Air is not limited to accepting only these options. Contact {{<exlink url="https://www.nvidia.com/en-us/networking/support/" text="NVIDIA Networking Support">}} for more information.
+Below are some common use cases for customizing your topology with DOT files. Air is not limited to accepting only these options. Contact [NVIDIA Networking Support](https://www.nvidia.com/en-us/networking/support/) for more information.
+
+
 
 #### Operating System
 You can set the OS of the node with the `os` option: 
 ```"server" [os="cumulus-vx-5.10.1"]```
 
-For a list of available operating systems, view the **Operating System** dropdown in the **Node Properties** when using the {{<link url="#The-Drag-and-Drop-Topology-Builder" text="drag-and-drop editor">}}.
+For a list of available operating systems, view the **Operating System** dropdown in the **Node Properties** when using the [drag-and-drop editor](#The-Drag-and-Drop-Topology-Builder).
 
 #### Disk Space
 By default, nodes in Air have 10GB of hard disk space. You can give more with the `storage` option, in GB:
