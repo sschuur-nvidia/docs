@@ -4,22 +4,16 @@ author: NVIDIA
 weight: 40
 product: NVIDIA Air
 ---
-
-
 Network topologies describe which nodes a data center is comprised of, how they are configured and which other nodes they are connected to.
 
 NVIDIA Air offers multiple means of creating custom topologies and new simulations.
-  {{<img src="/images/guides/nvidia-air/Catalog.png" width="800px">}}
 
 ## The Drag-and-Drop Topology Builder
-
 One way to create fully custom simulations is with the built-in topology builder. It provides a drag-and-drop editor to design any custom network.
 
 To get started, perform the following instructions:
 
-[air.nvidia.com/build](https://air.nvidia.com/build)
-
-1. Click the **Create Simulation** button. You can also click **Workspace > New Simulation** or visit [air.nvidia.com/build](https://air.nvidia.com/build).
+1. Click the **Create Simulation** button. You can also visit [air.nvidia.com/build](https://air.nvidia.com/build).
 2. Give your simulation a **Name**.
 3. Select **Blank Canvas** as the **Type**.
 4. Optionally, assign an Organization to the sim. Read more about them in [Organizations](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/). 
@@ -29,13 +23,50 @@ To get started, perform the following instructions:
      - A default script is prefilled to help you get started. 
 6. Click **Create**.
 
+{{<img src="/images/guides/nvidia-air/CreateSimulation.png" alt="" width="930px">}}
+
 #### ZTP Scripts
 You can add an optional **ZTP script** to the simulation when creating a new one. The ZTP script will be copied directly as-is into the `oob-mgmt-server` of the simulation. Any node making a ZTP request on the OOB management network has access to this ZTP script through a DHCP server and web server running on the `oob-mgmt-server`.
 
 A default script is prefilled to help you get started. It implements some common ZTP features on Cumulus Linux, such as changing the default password or downloading SSH keys. You can modify it to your needs.
 
-### Manage Nodes
+```
+#!/bin/bash
+# Created by Topology-Converter v4.7.1
+#    Template Revision: v4.7.1
 
+function error() {
+  echo -e "e[0;33mERROR: The Zero Touch Provisioning script failed while running the command $BASH_COMMAND at line $BASH_LINENO.e[0m" >&2
+}
+trap error ERR
+
+SSH_URL="http://192.168.200.1/authorized_keys"
+# Uncomment to setup SSH key authentication for Ansible
+# mkdir -p /home/cumulus/.ssh
+# wget -q -O /home/cumulus/.ssh/authorized_keys $SSH_URL
+
+# Uncomment to unexpire and change the default cumulus user password
+# passwd -x 99999 cumulus
+# echo 'cumulus:Cumu1usLinux!' | chpasswd
+
+# Uncomment to make user cumulus passwordless sudo
+# echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
+
+# Uncomment to enable all debian sources & netq apps3 repo
+# sed -i 's/#deb/deb/g' /etc/apt/sources.list
+# wget -q -O pubkey https://apps3.cumulusnetworks.com/setup/cumulus-apps-deb.pubkey
+# apt-key add pubkey
+# rm pubkey
+
+# Uncomment to allow NTP to make large steps at service restart
+# echo "tinker panic 0" >> /etc/ntp.conf
+# systemctl enable ntp@mgmt
+
+exit 0
+#CUMULUS-AUTOPROVISIONING
+```
+
+### Manage Nodes
 Drag and drop servers and switches from the **System Palette** on the right into the workspace.
 
 You can choose your hardware model based on available NVIDIA Spectrum (SNXXXX) switches. This does not affect the simulation but acts as a macro to pre-populate the number of ports per switch model. You don’t need to use each port.
@@ -48,16 +79,24 @@ Click on a node to view its **Node Properties**.
 - **Memory (GB)**: Amount of RAM. Default 2 GB.
 - **Storage (GB)**: Amount of hard disk space. Default 10 GB.
 - **Connectors**: Choose an available port to directly connect to any port on another node.
+- Make sure to click the **Update Node** button when finished making changes.
+- Delete a node with the **Delete Node** button.
 
 There are also various **Advanced Options**, such as enabling **UEFI Secure Boot**.
 
+{{<img src="/images/guides/nvidia-air/AddNode.png" alt="">}}
+
 When you are done creating your topology, click **Workspace > Start Simulation** to start the sim. **You cannot add, remove or edit nodes once the sim is started for the first time.**
+
+{{<img src="/images/guides/nvidia-air/WorkspaceStart.png" alt="" width="200px">}}
 
 ### OOB Management Network
 
 On the **System Palette**, there is an option to toggle **Enable OOB**. Toggling this setting enables the out-of-band management network 
 This setting creates an OOB network for you that connects all nodes with each other. It also adds an `oob-mgmt-switch` and `oob-mgmt-server` to your simulation. When you [enable SSH](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Quick-Start/#services)
 in your sim, you will SSH into the oob-mgmt-server, making this node an ideal start point for configuration. Air handles the configuration automatically for you.
+
+{{<img src="/images/guides/nvidia-air/EnableOOB.png" alt="" width="200px">}}
 
 You can manually add more `oob-mgmt-switches` and `oob-mgmt-servers` to your simulation if you need. But the **Enable OOB** toggle must be enabled to use the OOB network.
 
@@ -86,8 +125,6 @@ graph "Demo" {
 }
 ```
 Below are some common use cases for customizing your topology with DOT files. Air is not limited to accepting only these options. Contact [NVIDIA Networking Support](https://www.nvidia.com/en-us/networking/support/) for more information.
-
-
 
 #### Operating System
 You can set the OS of the node with the `os` option: 
@@ -148,6 +185,8 @@ To upload a DOT file into Air:
 7. Click **Create**.
 
 Air will build a custom topology based on the DOT file. 
+
+{{<img src="/images/guides/nvidia-air/CreateADOT.png" alt="">}}
 
 ## Import a Topology via API
 You can import JSON formatted topologies via API.
