@@ -50,9 +50,8 @@ To learn about custom topologies and creating sims with Air's built-in drag-and-
 To learn about preconfigured, ready out-of-box simulations, visit [Pre-Built Demos](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos).
 
 ### Node Consoles
-
 Double click on any node to connect to its console. 
-{{<img src="/images/guides/nvidia-air/LoginCredsButton.png" alt=""  width="28px" >}}
+
 Click the {{<img src="/images/guides/nvidia-air/LoginCredsButton.png" alt=""  width="32px" >}} icon to view its login credentials. 
  
 Click the {{<img src="/images/guides/nvidia-air/PopoutButton.png" alt=""  width="32px" >}} button to open the console in its own window.
@@ -72,7 +71,7 @@ To add a new service to your sim:
 
 {{<img src="/images/guides/nvidia-air/ServicesAdd.png" alt=""  width="450px" >}}
 
-Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the [OOB network](http://localhost:1313/nvidia-air/Custom-Topology/#oob-management-network) is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see [SSH Keys](#api-tokens-&-ssh-keys) below.
+Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the [OOB network](http://localhost:1313/nvidia-air/Custom-Topology/#oob-management-network) is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see [SSH Keys](#api-tokens--ssh-keys) below.
 
 Click **Services > Services List** to view existing services enabled on the sim. Here you can also view important access information such as the port and external host to connect with.
 
@@ -87,6 +86,9 @@ Single click on a node to view its **Node Properties**. Click **Advanced Propert
 
 {{<img src="/images/guides/nvidia-air/RebuildReset.png" alt=""  width="400px" >}}
 
+
+{{<img src="/images/guides/nvidia-air/RebuildReset.png" alt=""  width="450px" >}}
+
 You can also rebuild the entire simulation with **Workspace > Rebuild All Nodes**.
 
 ### Edit Simulations
@@ -94,7 +96,7 @@ You can also rebuild the entire simulation with **Workspace > Rebuild All Nodes*
 Click **Workspace > Edit Simulation** to edit various aspects of your sim.
 
 - **Name**: Edit the sim name. Simulations can have duplicate names, as they each have a unique ID under the hood.
-- **Organization**: Assign an Organization. You can read more about Organizations [here](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations). This will assign this exact simulation to the Organization, _not a copy_. This means each user with appropriate permissions will have access to this sim.
+- **Organization**: Assign an Organization. You can read more about Organizations [here](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations). This will assign this exact simulation to the Organization, _not a copy_. This means each user with appropriate permissions will have access to this exact sim.
 
 - **Sleep date**: When the simulation will be automatically put to sleep. This means the state of the sim is saved and resources are freed for your account. Nodes are _not_ powered off.
 - **Expiration date**: When the simulation will be automatically deleted.
@@ -140,10 +142,10 @@ To share a sim:
 
 1. Click **Workspace > Manage Users** to share this exact sim, _not a copy_, with any other user. 
 2.	Enter their email address. You can enter multiple addresses.
-3.	Toggle whether they only have **Read Only** access. This means they will not be able to make any modifications to the simulation in Air, such as deleting it or placing it in an Organization. The user can still access consoles and modify the simulation directly.
+3.	Toggle whether they only have **Read Only** access. This means they will not be able to make any modifications to the simulation in Air, such as deleting it or placing it in an Organization. The user can ##still access consoles## and modify the simulation directly that way.
 4.	Click **Add User**.
    
-The user(s) will now see the simulation in their Simulations list to access. The user will not receive any notification they were given access to the sim. 
+The user(s) will now see the simulation in their [Simulations](https://air.nvidia.com/simulations) list to access. The user will not receive any notification they were given access to the sim. 
 
 {{<img src="/images/guides/nvidia-air/ManageUsers.png" alt="" width="600px">}}
 
