@@ -95,9 +95,6 @@ Single click on a node to view its **Node Properties**. Click **Advanced Propert
 - **Rebuild**: Restores the node to its original or default configuration. If the node was created from a demo, or other snapshot, it will revert to that configuration had you just launched a copy.
 - **Reset**: Performs a hard reboot to the node.
 
-{{<img src="/images/guides/nvidia-air/RebuildReset.png" alt=""  width="400px" >}}
-
-
 {{<img src="/images/guides/nvidia-air/RebuildReset.png" alt=""  width="450px" >}}
 
 You can also rebuild the entire simulation with **Workspace > Rebuild All Nodes**.
