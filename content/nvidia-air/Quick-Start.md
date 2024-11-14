@@ -30,27 +30,32 @@ If your email address is not accepted as a valid business email address and you 
 {{%/notice%}}
 
 ## Simulations
-When you log into Air, you will first see your list of current simulations in your account. You can power on/off your simulations, [edit](#edit-simulations) various aspects of it, [share it with others](#sharing-simulations) and delete it with the **Actions** {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} button on each sim.
+When you log into Air, you will first see your list of current simulations in your account. 
+
+### Create a Simulation
+You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a [Demo Marketplace](https://air.nvidia.com/demos) for fully preconfigured simulations.
+
+To create a new sim, click the **Create Simulation** button from the [Simulations homepage](https://air.nvidia.com/simulations). Then follow the below instructions depending on what kind of topology you want to build:
+
+- To learn about custom topologies and creating sims with Air's built-in drag-and-drop editor, visit [Custom Topology](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/).
+
+- To learn about preconfigured, ready out-of-box simulations, visit [Pre-Built Demos](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos).
+
+### Navigate your Sim
+After you create a simulation, you can power them on/off, [edit](#edit-simulations) various aspects of it, [share it with others](#sharing-simulations), and delete it with the **Actions** {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} button on each sim.
+
+{{<img src="/images/guides/nvidia-air/SimulationsActionHighlight.png" alt="">}}
 
 Click on a simulation to view it. You can click the **Topology**, **Nodes** and **Links** tabs for different views. Single click on a node to view its **Node Properties** and double click to open its console.
 
 The ticking timer represents when your sim will automatically sleep, or be **stored**. You can add more time by clicking the **Actions {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} > Add Time**.
 
-If your simulation contains a **Simulation Guide**, you can reopen a closed Guide by clicking **Workspace > Simulation Guide**.
+If your simulation contains a **Simulation Guide**, you can reopen a closed guide by clicking **Workspace > Simulation Guide**.
 
 {{<img src="/images/guides/nvidia-air/NodesTopology.png" alt="">}}
 
-### Create a Simulation
-You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a [Demo Marketplace](https://air.nvidia.com/demos) for fully preconfigured simulations.
-
-To create a new sim, click the **Create Simulation** button.
-
-To learn about custom topologies and creating sims with Air's built-in drag-and-drop editor, visit [Custom Topology](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/).
-
-To learn about preconfigured, ready out-of-box simulations, visit [Pre-Built Demos](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos).
-
 ### Node Consoles
-Double click on any node to connect to its console. 
+Double click on any node to connect to its console from the **Topology** tab. 
 
 Click the {{<img src="/images/guides/nvidia-air/LoginCredsButton.png" alt=""  width="32px" >}} icon to view its login credentials. 
  
