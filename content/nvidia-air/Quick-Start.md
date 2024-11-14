@@ -37,9 +37,9 @@ Click on a simulation to view it. You can click the **Topology**, **Nodes** and 
 The ticking timer represents when your sim will automatically sleep, or be **stored**. You can add more time by clicking the **Actions {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} > Add Time**.
 
 ### Create a Simulation
-You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a [Demo Marketplace (https://air.nvidia.com/demos) for fully preconfigured simulations.
+You can create new simulations in several different ways. NVIDIA Air provides multiple means of creating your own topologies from scratch, and also provides a [Demo Marketplace](https://air.nvidia.com/demos) for fully preconfigured simulations.
 
-To create a new sim, click the **Create Simulation** button. You can also click **Workspace > New Simulation**.
+To create a new sim, click the **Create Simulation** button.
 
 To learn about custom topologies and creating sims with Air's built-in drag-and-drop editor, visit [Custom Topology](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/).
 
@@ -48,12 +48,10 @@ To learn about preconfigured, ready out-of-box simulations, visit [Pre-Built Dem
 ### Node Consoles
 
 Double click on any node to connect to its console. 
-
-Click the ![image](https://github.com/user-attachments/assets/9b32b625-9126-4570-82a1-23969cc9b43a)
- icon to view its login credentials. 
+{{<img src="/images/guides/nvidia-air/LoginCredsButton.png" alt=""  width="28px" >}}
+Click the {{<img src="/images/guides/nvidia-air/LoginCredsButton.png" alt=""  width="32px" >}} icon to view its login credentials. 
  
-Click the ![image](https://github.com/user-attachments/assets/8e68f8bd-f65c-4525-acfb-b14a2cb9bb4a)
- button to open the console in its own window.
+Click the {{<img src="/images/guides/nvidia-air/PopoutButton.png" alt=""  width="32px" >}} button to open the console in its own window.
 
 ### Services
 
@@ -62,12 +60,12 @@ Enabling services allows more integration with your sim, such as using a preferr
 To add a new service to your sim:
 1. Click **Services > New Services** to create an external connection with your sim.
 2. **Service Name**: Name for your service. Handy for running multiple instances of the same service on different interfaces or ports.
-3. **Interface**: Where the connection terminates. Typically eth0 on the `oob-mgmt-server`.
+3. **Interface**: Where the connection terminates. Typically `eth0` on the `oob-mgmt-server`.
 4. **Service Type**: NVIDIA Air creates a hyperlink to the URL automatically in the Services panel for _SSH_, _HTTP_ or _HTTPS_ services. For _Other_ services, any port can be used, but Air will not generate a hyperlink. The hyperlink provides a quick way to copy and paste the service if your browser supports it.
 5. **Service Port**: Internal port where service terminates.
 6. Click **Create**.
 
-Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the OOB network is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see [SSH Keys](#SSH-Keys) below.
+Click **Services > Enable SSH** to enable SSH into the `oob-mgmt-server` immediately without having to create a custom service. Use this to leverage your preferred local SSH client. Only available when the [OOB network](http://localhost:1313/nvidia-air/Custom-Topology/#oob-management-network) is enabled. SSH password authentication is disabled on the `oob-mgmt-server` by default. To use SSH password authentication, you must upload SSH keys to your user profile; see [SSH Keys](#api-tokens-&-ssh-keys) below.
 
 Click **Services > View Services** to view existing services enabled on the sim. Here you can also view important access information such as the port and external host to connect with.
 
@@ -90,7 +88,7 @@ Click **Workspace > Edit Simulation** to edit various aspects of your sim.
 - **Sleep date**: When the simulation will be automatically put to sleep. This means the state of the sim is saved and resources are freed for your account. Nodes are _not_ powered off.
 - **Expiration date**: When the simulation will be automatically deleted.
 
-You can also edit your sim from the **Simulations homepage > Actions > Edit Simulation**.
+You can also edit your sim from the **Simulations homepage > Actions {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} > Edit Simulation**.
 
 
 ## API Tokens & SSH Keys
@@ -114,7 +112,7 @@ SSH keys must be added here when you wish to enable the SSH service on simulatio
 To add an SSH key:
 
 1. **Name** your SSH key.
-2. Copy your **Public Key**.
+2. Copy your **Public Key** into the textbox.
 3. Click **Add**.
 
 You can revoke/delete both API tokens and SSH keys if you no longer need them, or they are believed to be compromised.
