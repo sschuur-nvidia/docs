@@ -8,7 +8,7 @@ NVIDIA Air supports collaboration so that you can share simulations with your co
 
 If you do not know who your Organization Administrator is, reach out to air-support@nvidia.com.
 
-## Assign A Simulation to an Organization
+## Assign Simulations to an Organization
 
 To assign a simulation to an Organization:
 1. From the [Simulations](https://air.nvidia.com/simulations) homepage, click **Actions {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} > Edit Simulation** for the sim you wish to assign to an Organization.
