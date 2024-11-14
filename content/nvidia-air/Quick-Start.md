@@ -50,7 +50,7 @@ Click on a simulation to view it.
 
 You can click the **Topology**, **Nodes** and **Links** tabs for different views. 
 
-The ticking timer represents when your sim will automatically sleep, or be **stored**. You can add more time by clicking **Actions {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} > Add Time**.
+The ticking timer represents when your sim will automatically sleep, or be **stored**. You can add more time by clicking the **Actions button {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} > Add Time**.
 
 Click on a node to view its **Node Properties**.
 
