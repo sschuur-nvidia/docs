@@ -11,7 +11,7 @@ NVIDIA Air offers many pre-built simulations in the [Demo Marketplace](https://a
 Navigate to the [Demo Marketplace](https://air.nvidia.com/demos) in Air. 
 
 - Click **Launch** on any demo sim to create a copy in your account. Depending on its size, it may take several minutes to deploy and power on. You will find it in your list of available [Simulations](https://air.nvidia.com/simulations).
-- 
+
 - Click **Documentation** to view the accompanying docs for the lab. This link leads you to the GitLab repository of which hosts any code, configuration, Ansible files, extra docs, and more for the lab. You will also find the topology DOT file in the GitLab, for which you can reference from when creating other topologies. You can read more about DOT files and custom topologies in [Custom Topology](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/).
 
 {{<img src="/images/guides/nvidia-air/Documentation.png" alt="">}}
