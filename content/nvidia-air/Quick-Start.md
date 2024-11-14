@@ -46,13 +46,19 @@ After you create a simulation, you can power them on/off, [edit](#edit-simulatio
 
 {{<img src="/images/guides/nvidia-air/SimulationsActionHighlight.png" alt="">}}
 
-Click on a simulation to view it. You can click the **Topology**, **Nodes** and **Links** tabs for different views. Single click on a node to view its **Node Properties** and double click to open its console.
+Click on a simulation to view it. 
+
+You can click the **Topology**, **Nodes** and **Links** tabs for different views. 
 
 The ticking timer represents when your sim will automatically sleep, or be **stored**. You can add more time by clicking **Actions {{<img src="/images/guides/nvidia-air/ActionsButton.png" alt="">}} > Add Time**.
 
-If your simulation contains a **Simulation Guide**, you can reopen a closed guide by clicking **Workspace > Simulation Guide**.
+Click on a node to view its **Node Properties**.
 
 {{<img src="/images/guides/nvidia-air/NodesTopology.png" alt="">}}
+
+If your simulation contains a **Simulation Guide**, you can reopen a closed guide by clicking **Workspace > Simulation Guide**.
+
+{{<img src="/images/guides/nvidia-air/WorkspaceSimGuide.png" alt="">}}
 
 ### Node Consoles
 Double click on any node to connect to its console from the **Topology** tab. 
