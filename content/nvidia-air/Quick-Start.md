@@ -152,10 +152,11 @@ To share a sim:
 2.	Enter their email address. You can enter multiple addresses.
 3.	Toggle whether they only have **Read Only** access. This means they will not be able to make any modifications to the simulation in Air, such as deleting it or placing it in an Organization. The user can _still access consoles_ and modify the simulation directly that way.
 4.	Click **Add User**.
+5.	Click **Close** when finished.
    
-The user(s) will now see the simulation in their [Simulations](https://air.nvidia.com/simulations) list to access. The user will not receive any notification they were given access to the sim. 
-
 {{<img src="/images/guides/nvidia-air/ManageUsers.png" alt="" width="600px">}}
+
+The user(s) will now see the simulation in their [Simulations](https://air.nvidia.com/simulations) list to access. The user will not receive any notification they were given access to the sim. 
 
 You can also share simulations via Organizations. Read more about them [here](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations). 
 
